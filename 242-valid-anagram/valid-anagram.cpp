@@ -11,9 +11,8 @@ public:
                 tmap[t[i]]++;
             }
 
-            for (int i = 0; i < smap.size(); i++) {
-                auto sss = smap[i];
-                if (smap[i] != tmap[i]) return false;
+            for (auto c : smap) {
+                if (tmap[c.first] != c.second) return false;
             }
             return true;
     }
