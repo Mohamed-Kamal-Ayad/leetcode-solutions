@@ -4,13 +4,12 @@ public:
         int l = 0, r = 1;
         int maxP = 0;
 
-        while (l < r && r < prices.size()) {
-            if (prices[r] < prices[l]) {
+        while (r < prices.size()) {
+            if (prices[l] < prices[r]) {
+                maxP = max(maxP, prices[r] - prices[l]);
+            } else {
                 l = r;
-                r = l + 1;
-                continue;
             }
-            maxP = max(maxP, prices[r] - prices[l]);
             r++;
         }
         return maxP;
