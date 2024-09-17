@@ -27,7 +27,8 @@ public:
                 high = mid - 1;
             }
         }
-        if (low == 0 && m[key][low].second > timestamp) return "";
+        if (high == -1)
+            return "";
         return m[key][high].first;
     }
 };
