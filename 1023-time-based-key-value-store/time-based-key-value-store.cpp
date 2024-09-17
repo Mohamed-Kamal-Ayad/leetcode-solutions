@@ -14,19 +14,17 @@ public:
     string get(string key, int timestamp) {
         int low = 0;
         int high = m[key].size() - 1;
+        string res = "";
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (m[key][mid].second == timestamp)
-                return m[key][mid].first;
-            else if (timestamp > m[key][mid].second) {
+            if (m[key][mid].second <= timestamp) {
+                res = m[key][mid].first;
                 low = mid + 1;
             } else {
                 high = mid - 1;
             }
         }
-        if (high == -1)
-            return "";
-        return m[key][high].first;
+        return res;
     }
 };
 
