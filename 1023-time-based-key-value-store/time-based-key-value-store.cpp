@@ -12,9 +12,6 @@ public:
     }
 
     string get(string key, int timestamp) {
-        if (m.count(key) == 0)
-            return "";
-
         int low = 0;
         int high = m[key].size() - 1;
         while (low <= high) {
