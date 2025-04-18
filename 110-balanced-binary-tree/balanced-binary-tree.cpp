@@ -14,9 +14,6 @@ class Solution {
 public:
     bool isBalanced(TreeNode* root) {
         bool b = true;
-        if (!root) {
-            return true;
-        }
         dfs(root, b);
         return b;
     }
