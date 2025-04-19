@@ -13,22 +13,12 @@
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
-        bool b = true;
-        return dfs(p, q, b);
-    }
-
-    bool dfs(TreeNode* rootp, TreeNode* rootq, bool& b) {
-        if (!rootp && !rootq) {
-            return b;
+        if (!p && !q) {
+            return true;
         }
-        if (!rootp || !rootq) {
-            b = false;
-            return b;
+        if (!p || !q || p->val != q->val) {
+            return false;
         }
-        if (rootp->val != rootq->val)
-            b = false;
-        dfs(rootp->left, rootq->left, b);
-        dfs(rootp->right, rootq->right, b);
-        return b;
+        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
     }
 };
