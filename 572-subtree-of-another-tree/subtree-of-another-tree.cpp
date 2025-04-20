@@ -12,6 +12,16 @@
  */
 class Solution {
 public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if (!p && !q) {
+            return true;
+        }
+        if (!p || !q || p->val != q->val) {
+            return false;
+        }
+        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+    }
+
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
         if (!subRoot) {
             return true;
@@ -20,21 +30,10 @@ public:
             return false;
         }
 
-        if (sameTree(root, subRoot)) {
+        if (isSameTree(root, subRoot)) {
             return true;
         }
         return isSubtree(root->left, subRoot) ||
                isSubtree(root->right, subRoot);
-    }
-
-    bool sameTree(TreeNode* root, TreeNode* subRoot) {
-        if (!root && !subRoot) {
-            return true;
-        }
-        if (root && subRoot && root->val == subRoot->val) {
-            return sameTree(root->left, subRoot->left) &&
-                   sameTree(root->right, subRoot->right);
-        }
-        return false;
     }
 };
