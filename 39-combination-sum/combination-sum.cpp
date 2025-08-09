@@ -7,8 +7,7 @@ public:
         }
 
         if (sum == target) {
-            if (find(res.begin(), res.end(), subset) == res.end())
-                res.push_back(subset);
+            res.push_back(subset);
             return;
         }
 
