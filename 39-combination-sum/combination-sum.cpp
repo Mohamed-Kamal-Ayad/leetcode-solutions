@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void dfs(vector<int>& candidates, int target, int start, int& sum,
+    void dfs(vector<int>& candidates, int target, int start, int sum,
              vector<int>& subset, vector<vector<int>>& res) {
         if (sum > target) {
             return;
@@ -12,10 +12,8 @@ public:
         }
 
         for (int i = start; i < candidates.size(); ++i) {
-            sum += candidates[i];
             subset.push_back(candidates[i]);
-            dfs(candidates, target, i, sum, subset, res);
-            sum -= candidates[i];
+            dfs(candidates, target, i, sum + candidates[i], subset, res);
             subset.pop_back();
         }
     }
