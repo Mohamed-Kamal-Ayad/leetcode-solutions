@@ -2,7 +2,7 @@ class Solution {
 public:
     void dfs(vector<int>& nums, int i, vector<int>& subset,
              vector<vector<int>>& res) {
-        if (i >= nums.size()) {
+        if (i == nums.size()) {
             res.push_back(subset);
             return;
         }
