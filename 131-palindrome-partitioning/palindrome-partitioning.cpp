@@ -7,7 +7,7 @@ public:
             return;
         }
 
-        for (int i = start; i <= s.length(); i++) {
+        for (int i = start; i < s.length(); i++) {
             if (isPali(s, start, i)) {
                 part.push_back(s.substr(start, i - start + 1));
                 backtrack(i + 1, s, part, res);
