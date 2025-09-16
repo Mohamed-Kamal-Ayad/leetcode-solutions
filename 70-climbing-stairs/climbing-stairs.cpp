@@ -4,8 +4,8 @@ private:
 
 public:
     int climbStairs(int n) {
-        if (n <= 2)
-            return n;
+        if (n <= 1)
+            return 1;
         if (dpVec[n] != -1)
             return dpVec[n];
         dpVec[n] = climbStairs(n - 1) + climbStairs(n - 2);
